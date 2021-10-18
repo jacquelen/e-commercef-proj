@@ -28,7 +28,6 @@ updatequantity(newquntity:number){
 }
 //////////////////////////////////////
   updateProductcounter(newCountValue:number):void{
-    console.log(newCountValue)
     this.productcount.next(newCountValue);
   }
   updateprice(newprice){
@@ -47,7 +46,6 @@ updatequantity(newquntity:number){
   addToCart(product:any){
 this.cartItemList.push(product);
 this.productList.next(this.cartItemList)
-console.log(this.cartItemList);
 this.getproductprice()
   }
   getproductprice():number{
@@ -73,6 +71,3 @@ this.getproductprice()
 
 }
 
-
-// this.selecteditem.push(this.movie);
-//     console.log(this.selecteditem);
