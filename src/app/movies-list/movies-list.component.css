@@ -1,0 +1,13 @@
+.cas{
+    background-color: aqua;
+    position: relative;
+}
+.pos{
+    position: absolute;
+    top:5em;
+    right: 0;
+    width: 25vw;
+    border-bottom: 1px solid #ccc;
+    padding: 3em;
+    background-color: rgba(236, 182, 112,0.1);
+}

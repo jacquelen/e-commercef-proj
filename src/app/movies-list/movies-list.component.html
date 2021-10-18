@@ -1,0 +1,35 @@
+<!-- <div class="container my-5">
+ <ul>
+     <li *ngFor="let movie of moviesList">{{movie.title}}</li>
+ </ul>
+</div> -->
+<!-- <div class="container g-0"> -->
+
+    <div class="row row-col-1 row-cols-md-3 g-4 w-75 p-5">
+
+        <div class="col-6 ms-0"*ngFor="let movie of moviesList">
+         <app-movie-card [movie]="movie" (sendMovie)="receiveMovie($event)" ></app-movie-card>
+        </div>  
+
+        <div *ngIf="wishlist.length==0" class="pos">
+        <h4 class="text-center text-secondary"> your favourite {{wishlist.length}} </h4>
+        </div>
+
+        <div *ngIf="wishlist.length !=0" class="pos">
+         <h3 class="text-center text-secondary"> your favourite : {{wishlist.length}}</h3>
+
+         <div class=" p-3 border-bottom " *ngFor="let wish of wishlist">
+             <img [src]="wish.image" class="w-25 m-1"/>
+             <p class="text-secondary fw-bold ">{{wish.title}}</p>
+             <p class="text-secondary fw-bold "> {{wish.category}} </p>
+             <p class="text-success fw-bold ">Rate:{{wish.rating.rate}} </p>
+             <p class="text-success fw-bold">  Review :{{wish.rating.count}} </p>
+             <p class="fw-bold"> {{wish.price |currency:'EGP'}} </p>
+          <div>
+
+         </div>
+    </div>
+
+
+      <!-- (sendMovie)="receiveMovie($event)" -->
+<!-- </div> -->

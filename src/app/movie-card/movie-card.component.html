@@ -1,0 +1,18 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<div class="card h-100  p-5">
+    <img [src]="movie.image" class="card-img-top w-50" alt="...">
+    <div class="card-body ">
+      <h5 class="card-title"style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">{{movie.title}} </h5>
+      <h4> {{movie.price | currency: 'EGP'}} </h4>
+      <span> 
+        <i class="far fa-star fs-2 text-warning" (click)="addtowishlist(movie)" *ngIf="!wish"></i>
+        <i class="fas fa-star fs-2 text-warning"  (click)="removeitem(movie)" *ngIf="wish" ></i>
+      </span>
+      <p class="card-text " style="white-space: wrap;overflow:hidden;text-overflow:ellipsis;"> {{movie.description}} </p>
+      <button class="btn btn-primary"(click)="senddatatoparent(movie.id)" >select item </button>
+      <!-- <button class="btn btn-light border-warning ms-5"(click)="addtowishlist(movie)"> add to favourite </button> -->
+      
+    </div>
+  </div>

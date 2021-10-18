@@ -1,0 +1,45 @@
+<!-- <h1> {{item.title}} </h1> -->
+<!-- <div class="container">
+    <div class="card h-100 col-5 w-100 bg-success">
+        <img [src]="items?.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title w-100">{{items?.title}} </h5>
+          <h4> {{items?.price | currency}} </h4>
+          <p class="card-text w-100"> {{items?.description}} </p>
+        </div>
+      </div>
+    </div>
+
+ <div class="container">
+   <div class="bg-warning fw-bold h-100 p-5 text-center">
+     <img [src]="items?.image" class="card-img-top w-25 " alt="...">
+     <h1>{{items?.title}}</h1>
+     <h4> {{items?.price | currency}} </h4>
+     <button class="btn btn-primary" (click)="addToCard()" >select item </button>
+   <p>count:{{productcount}}  </p> 
+    </div>
+  </div>    -->
+    
+  <div class="container">
+    <div class="row p-5">
+      <div class="col-6">
+        <div class="card h-100 col-5 w-100 ">
+          <div class="card-body w-75 text-center m-auto">
+            <img [src]="items?.image" class="card-img-top  " alt="...">
+            <h5 class="card-title ">{{items?.title}} </h5>
+            <h4> {{items?.price | currency}} </h4>
+            <p class="card-text"> {{items?.description}} </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="bg-light fw-bold h-100 p-5 text-center">
+          <img [src]="items?.image" class="card-img-top" alt="...">
+          <h1>{{items?.title}}</h1>
+          <h4> {{items?.price | currency}} </h4>
+          <button class="btn btn-primary" (click)="addToCard(items)" >move to Cart to add </button>
+        <p class="m-5"> <strong class="text-success"> count:{{productcount}}</strong></p> 
+         </div>
+      </div>
+    </div>
+  </div>

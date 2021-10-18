@@ -1,0 +1,41 @@
+
+<ng-container *ngIf="productararay.length==0" >
+
+    <h1 class="fs-1 text-center text-secondary p-5">Oops! </h1>
+    <h3 class="text-center fw-bold p-5 text-secondary" > No favs here</h3>
+    <div class="w-50 mx-auto  text-center">
+        <i class="fas fa-star-half text-warning text-center"></i>
+
+    </div>
+</ng-container>
+
+<div class="container"  *ngIf="productararay.length !=0">
+    <div class="row ">
+        <div class="col-3 w-50 h-25 col-4" *ngFor="let item of productararay">
+            <img [src]="item.image" class="card-img-top w-25 h-25" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> {{item.title}}</h5>
+                <h2 class=""> {{item.category}}  </h2>
+                <h2 class=""> {{item.price |currency}} </h2>
+                <p class="card-text"> {{item.description}}</p>
+                <button type="button" class="btn btn-danger text-dark"(click)="removeitem(item) "  >Delete from favourite</button> 
+             </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+<h1 class="m-auto w-50 bg-primary text-light text-center p-2">Log in page</h1>
+<div class="container my-5 ">
+    <form [formGroup]="login" (ngSubmit)="submitReactiveloginForm()">
+<!-- Name -->
+        <div class="form-group mt-3">
+            <label for="emailadress">Email Adress</label>
+            <input type="email" 
+            class="form-control"
+            id="emailadress"
+            aria-describedby="emailadress"
+            name="emailadress"
+            formControlName="emailadress"/>
+        </div>
+        <div *ngIf="logFormControls.emailadress.touched && !logFormControls.emailadress.valid">
+        <small class="text-danger" *ngIf="logFormControls.emailadress.errors.required">this field is required</small>
+    </div> 
+    <!-- password -->
+    <div class="form-group mt-3">
+        <label for="password">PassWord</label>
+        <input type="password" 
+        class="form-control"
+        id="password"
+        aria-describedby="password"
+        name="password"
+        formControlName="password"/>
+    </div>
+    <div *ngIf="logFormControls.password.touched && !logFormControls.password.valid">
+        <small class="text-danger" *ngIf="logFormControls.password.errors.required">this field is required</small>
+    </div> 
+
+
+    <!-- {{login.value | json}} -->
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="!login.valid" >Log in</button>
+  </form> 
+
+  <p class="m-5 p-5 text-center">Don't have account? <a routerLink="/register"> Register</a></p> 

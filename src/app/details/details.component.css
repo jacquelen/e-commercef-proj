@@ -1,0 +1,11 @@
+.card-img-top{
+    width: 20vw;
+    height: 50vh;
+}
+.card{
+    display: flex;
+    justify-content: space-around;
+}
+.card-body{
+    width: 50vw;
+}

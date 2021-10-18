@@ -1,0 +1,59 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+<ng-container *ngIf="productararay.length !=0">
+    <div class="card-table m-5">
+        <div class="cart-product">
+            <div class="table table-responsive">
+                <thead class="p-5 m-5 text-center fw-bold fs-3">
+                    <tr>
+                        <th class="p-5">sr.No</th>
+                        <th class="p-5">Product Name</th>
+                        <th class="p-5">description</th>
+                        <th class="p-5">Quantity</th>
+                        <th class="p-5">Price</th>
+                        <!-- <th> price total for  each</th> -->
+                        <th class="p-5">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="p-5 m-5 text-center fw-bold fs-3"*ngFor="let item of productararay;let i=index">
+                    <td class="p-5">{{i+1}}</td>
+                    <td class="p-5"> {{item.title}}</td>
+                    <td class="p-5"> {{item.category}}  </td>
+                  <td>
+                <button class="btn"><i class="fas fa-plus bg-warning p-2 mt-5 rounded-pill f text-center" (click)="addToCards(item)"></i>
+                </button>
+                <span>{{item.q}}</span>
+                <button class="btn"><i class="fas fa-minus mt-5 bg-warning p-2 rounded-pill f" (click)="dec(item)" ></i></button>
+                    </td> 
+                    <td class="p-5"> {{item.price |currency:'EGP'}} </td>
+                    <!-- <td  class="p-5"> {{pr}}  </td> -->
+                    <td class="p-5"><button type="button" class="btn btn-danger text-dark"(click)="removeitem(item)">Delete</button> </td>
+                </tbody>
+            </div>
+<div class="border border-warning p-3 fs-3 fw-bold text-left" >Total Price: {{pr | currency:'EGP' }} </div>
+        </div>
+    </div>
+</ng-container>
+
+
+
+<ng-container *ngIf="productararay.length==0">
+    <div class="container">
+        <div>
+            <h2 class="p-1 m-5 text-center">my cart</h2>
+        </div>
+        <div class="p-5 m-5 text-secondary text-center">
+            <h1> your cart is empty</h1>
+    <div class="m-5">
+        <i class="fas fa-store-slash text-danger"></i>
+    </div>
+    <button type="button"  routerLink="/" class="btn btn-primary text-light m-5 fs-2">shop Now</button>
+
+        </div>
+    </div>
+</ng-container>
+
+
+

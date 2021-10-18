@@ -1,0 +1,119 @@
+<h1 class="m-auto w-50 bg-success text-light text-center p-2">Registration page</h1>
+<div class="container my-5 ">
+    <form [formGroup]="moviesForm" (ngSubmit)="submitReactiveForm()">
+<!-- Name -->
+        <div class="form-group mt-3">
+            <label for="movieName">Name</label>
+            <input type="text" 
+            class="form-control"
+            id="movieName"
+            aria-describedby="movieName"
+            name="movieName"
+            formControlName="movieName"/>
+        </div>
+        <div *ngIf="moviesFormControls.movieName.touched && !moviesFormControls.movieName.valid" class="alert alert-danger">
+        <small class="text-danger" *ngIf="moviesFormControls.movieName.errors.required">this field is required</small>
+    </div> 
+<!-- Email -->
+    <div class="form-group mt-3">
+        <label for="Email">Email</label>
+        <input type="email" 
+        class="form-control"
+        id="Email"
+        aria-describedby="Email"
+        name="Email"
+        formControlName="Email"/>
+    </div> 
+        <div *ngIf="moviesFormControls.Email.touched && !moviesFormControls.Email.valid" class="alert alert-danger">
+        <small  class="text-danger" *ngIf="moviesFormControls.Email.errors.required"> should enter name@gamil.com </small>
+    </div>
+<!-- username -->
+<div class="form-group mt-3">
+    <label for="Username">User Name</label>
+    <input type="text" 
+    class="form-control"
+    id="Username"
+    aria-describedby="Username"
+    name="Username"
+    formControlName="Username"/>
+</div> 
+<div *ngIf="moviesFormControls.Username.touched && !moviesFormControls.Username.valid" class="alert alert-danger">
+    <small  class="text-danger" *ngIf="moviesFormControls.Username.errors.required"> enter name not less 3 ltters and not more than 10 letters </small>
+</div>
+<!-- password -->
+<div class="form-group mt-3">
+    <label for="password">PassWord</label>
+    <input type="password" 
+    class="form-control"
+    id="password"
+    aria-describedby="password"
+    name="password"
+    formControlName="password"/>
+</div> 
+
+<div *ngIf="moviesFormControls.password.touched && !moviesFormControls.password.valid" class="alert alert-danger">
+    <small  class="text-danger" *ngIf="moviesFormControls.password.errors.required"> not less than 8 characters , contains at least one
+lowercase , one uppercase , at least one digit </small>
+</div>
+        
+<!-- confirm password -->
+<div class="form-group">
+    <label for="confirmpassword">Confirm Password</label>
+    <input 
+        formControlName="confirmpassword"
+        name="confirmpassword"
+        id="confirmpassword" 
+        type="password" 
+        class="form-control">
+
+    <div *ngIf="moviesFormControls.confirmpassword.touched && moviesFormControls.confirmpassword.invalid" class="alert alert-danger">
+        <small *ngIf="moviesFormControls.confirmpassword.errors.required">Password is required.</small>
+        <div *ngIf="moviesFormControls.confirmpassword.errors.confirmedValidator">Password and Confirm Password must be match.</div>
+    </div>
+</div>
+
+         {{moviesForm.value | json}}
+<button type="submit" class="btn btn-success mt-3" [disabled]="!moviesForm.valid" >Register</button>
+
+
+                <!-- adress -->
+<input type="button" (click)="Address()" class="btn btn-success mt-3"  value="Address"/>
+<section formArrayName="address" *ngFor="let adds of moviesForm.controls.address?.value; let i = index">
+
+<div [formGroupName]="i" class="border border-success m-5 p-5 w-50 bg-success text-light">
+    <label for="address" class="d-block">address</label>
+    <input
+    placeholder="enter address"formControlName="address"name="address"class="form-control"
+    />
+
+    <label for="street" class="d-block">street</label>
+    <input
+    placeholder="enter street"formControlName="street"name="street" class="form-control d-block"
+    />
+
+    <label for="city" class="d-block">city</label>
+    <input
+    placeholder="enter city"formControlName="city"name="city"class=" form-control d-block"
+    />
+    
+    <label for="country" class="d-block"> country</label>
+    <input
+    placeholder="enter country"formControlName="country"name="country"class="d-block form-control"
+    />
+</div>
+</section>
+      </form> 
+      <!-- adress -->
+<!-- link -->
+      <p class="m-5 p-5 text-center">Already have account!<a routerLink="/login"> Log in</a></p> 
+
+
+
+</div>
+
+
+
+
+
+
+
